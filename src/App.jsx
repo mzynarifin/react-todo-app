@@ -7,14 +7,11 @@ import "./App.css"
 
 function App() {
     const [todo, setTodo ] = useState("");
-
     const [todos, setTodos ] = useState(() => {
         const savedTodos = localStorage.getItem("todos");
         return savedTodos ? JSON.parse(savedTodos) : [];
     });
-
     const [filter, setFilter ] = useState("all");
-
     const [darkMode, setDarkMode] = useState(() => {
         try {
             const savedTheme = localStorage.getItem("darkMode");
@@ -25,7 +22,6 @@ function App() {
             return false;
         }
     })
-
     const [search, setSearch] = useState("");
 
     console.log(todos);
@@ -146,8 +142,7 @@ function App() {
 
     return (
         <div className={darkMode ? "container dark" : "container"}>
-            <Header 
-                todos={todos}/>
+            <Header todos={todos}/>
 
             <button className="theme-btn" onClick={() => {
                 setDarkMode(!darkMode);
